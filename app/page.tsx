@@ -59,7 +59,7 @@ export default function Home() {
                 <span className="hero-caption">Odis Bellinger · MA, LLPC</span>
                 <Image
                   className="hero-img"
-                  src="/images/odis-bellinger.jpg"
+                  src="/images/odis_bellinger_headshot.png"
                   alt="Odis Bellinger"
                   width={978}
                   height={1211}
