@@ -175,7 +175,7 @@ export default function Home() {
             <div className="story-head">
               <span className="eyebrow on-dark">On the Record</span>
               <span className="chapter" style={{ color: "var(--gold)" }}>Chapter III</span>
-              <h2>What hosts and <em>graduates</em> have said about a room Odis has been in.</h2>
+              <h2>What leaders and <em>parents</em> have said about Odis's programs impact on young men.</h2>
             </div>
           </div>
           <div className="wrap">

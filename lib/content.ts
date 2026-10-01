@@ -112,7 +112,7 @@ export const stagePhotos: { label: string; alt: string; src?: string }[] = [
   {
     label: "With young men · classroom",
     alt: "Odis Bellinger leading a classroom of young men in Building Better Men gear, hands raised",
-    src: "/images/stage/classroom.jpg", // VERIFY: photo release covers the students shown
+    src: "/images/stage/classroom.png", // VERIFY: photo release covers the students shown
   },
   { label: "On stage · audience wide", alt: "Wide view of Odis Bellinger on stage before an audience" },
 ];
