@@ -59,10 +59,10 @@ export default function Home() {
                 <span className="hero-caption">Odis Bellinger · MA, LLPC</span>
                 <Image
                   className="hero-img"
-                  src="/images/odis_bellinger_headshot.png"
+                  src="/images/odis-bellinger.png"
                   alt="Odis Bellinger"
-                  width={978}
-                  height={1211}
+                  width={1000}
+                  height={1178}
                   sizes="(max-width: 980px) 480px, 45vw"
                   priority
                 />
@@ -81,8 +81,8 @@ export default function Home() {
                   <span className="tile-value">
                     {tile.big && <span className="big">{tile.big}</span>}
                     {tile.lines
-                      ? tile.lines.map((line, i) => (
-                          <span key={line}>{i > 0 && <br />}{line}</span>
+                      ? tile.lines.map((line) => (
+                          <span className="tile-line" key={line}>{line}</span>
                         ))
                       : tile.text}
                   </span>

@@ -17,8 +17,8 @@ export const site = {
 export const tiles = [
   { label: "Founded", big: "1991", text: "Building Better Men Program, Detroit" },
   { label: "Young men reached", big: "20,000+", text: "Across mentoring, mentorship cohorts & keynotes" }, // VERIFY figure
-  { label: "Credentials", lines: ["MA, LLPC", "Wayne State University · Licensed Counselor"] }, // VERIFY license is current
-  { label: "Featured in", text: "Forbes · WXYZ Detroit · Metro Parent · Ford Men of Courage" }, // VERIFY each outlet
+  { label: "Credentials", lines: ["MA, LLPC", "Wayne State University", "Licensed Counselor"] }, // VERIFY license is current
+  { label: "Featured in", lines: ["Forbes", "WXYZ Detroit", "Metro Parent", "Ford Men of Courage"] }, // VERIFY each outlet
 ];
 
 export type Topic = {

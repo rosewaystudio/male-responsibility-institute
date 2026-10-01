@@ -74,12 +74,13 @@
   /* ------- info tiles ------- */
   .tiles{background:var(--charcoal);color:var(--cream);}
   .tiles-inner{display:grid;grid-template-columns:repeat(4,1fr);}
-  .tile{padding:44px 40px;border-right:1px solid color-mix(in srgb, var(--cream) 8%, transparent);border-bottom:1px solid color-mix(in srgb, var(--cream) 8%, transparent);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;}
+  .tile{padding:44px 32px;border-right:1px solid color-mix(in srgb, var(--cream) 8%, transparent);border-bottom:1px solid color-mix(in srgb, var(--cream) 8%, transparent);display:flex;flex-direction:column;justify-content:flex-start;}
   .tile:nth-child(4n){border-right:none;}
-  .tile-label{font:500 11px/1 var(--font-inter),sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
-  .tile-value{font-family:var(--font-cormorant),serif;font-weight:500;font-size:24px;line-height:1.25;color:var(--cream);margin-top:22px;text-wrap:balance;}
-  .tile-value .big{display:block;font-size:46px;line-height:1;margin-bottom:8px;letter-spacing:-.01em;}
-  @media (max-width:900px){
+  .tile-label{font:600 13px/1 var(--font-inter),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+  .tile-value{display:block;font-family:var(--font-cormorant),serif;font-weight:500;font-size:19px;line-height:1.35;color:var(--cream);margin-top:24px;text-wrap:pretty;}
+  .tile-value .big{display:block;font-size:46px;line-height:1;margin-bottom:10px;letter-spacing:-.01em;font-variant-numeric:lining-nums;}
+  .tile-line{display:block;white-space:nowrap;}
+  @media (max-width:1200px){
     .tiles-inner{grid-template-columns:repeat(2,1fr);}
     .tile{border-right:1px solid color-mix(in srgb, var(--cream) 8%, transparent);}
     .tile:nth-child(2n){border-right:none;}
