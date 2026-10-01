@@ -88,21 +88,21 @@ export const topics: Topic[] = [
 export const testimonials = [
   {
     quote:
-      "As a kid growing up in the inner city, Odis helped me make the right decisions, not the wrong ones. He always said, write it down. Put it on your refrigerator.",
-    name: "Walter Waters",
-    role: "Program graduate · Detroit",
+      "Building Better Men is a program that speaks specifically to their individual challenges as young boys and provides them with healthy, beneficial ways to express and navigate any issues or challenges",
+    name: "Stephanie Glenn",
+    role: "Principal, Pembroke Academy National Heritage Academies Charter Schools (MI)",
   },
   {
     quote:
-      "Words cannot describe what an asset Odis is to his community locally and globally. I invited brother Odis to come to Toronto and speak to our young boys. What an impact he made.",
-    name: "Community Host",
-    role: "Toronto, Canada",
+      "My boys have been very receptive of the B2M program. Every week a new student sneaks into the leadership class. One student informed me, Everybody wants to be in it!",
+    name: "Tonya Corbitt",
+    role: "Assistant Principal, North Farmington High School, Farmington Public Schools System (MI)",
   },
   {
     quote:
-      "His message was a Godsend. B2M has had a powerful positive effect on our grandsons, who have excelled academically — from below grade level to trailblazing above it.",
-    name: "Grandparent & Guardian",
-    role: "Metro Detroit",
+      "This program has given my son tools for communication, reasoning, responsibility, and more. His communication skills at home, school, and in the community have improved tremendously.",
+    name: "Mother of M.W, 14 years old",
+    role: "Parent, Detroit Public Schools Community District (MI)",
   },
 ];
 
