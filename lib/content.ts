@@ -88,7 +88,7 @@ export const topics: Topic[] = [
 export const testimonials = [
   {
     quote:
-      "Building Better Men is a program that speaks specifically to their individual challenges as young boys and provides them with healthy, beneficial ways to express and navigate any issues or challenges",
+      "Building Better Men is a program that speaks specifically to their individual challenges as young boys and provides them with healthy, beneficial ways to express and navigate any issues or challenges.",
     name: "Stephanie Glenn",
     role: "Principal, Pembroke Academy National Heritage Academies Charter Schools (MI)",
   },

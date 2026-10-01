@@ -52,6 +52,7 @@
   .hero h1{font-family:var(--font-cormorant),serif;font-weight:500;font-size:clamp(48px,6.4vw,92px);line-height:1.02;letter-spacing:-.01em;color:var(--ink);margin:28px 0 28px;text-wrap:pretty;}
   .hero h1 em{font-style:italic;color:var(--bronze);font-weight:500;}
   .hero p.lede{font-size:17px;line-height:1.6;color:var(--ink);max-width:520px;margin-bottom:44px;}
+  .hero .lede-premise{font-family:var(--font-cormorant),serif;font-size:1.25em;font-weight:600;color:var(--bronze);}
   .cta-row{display:flex;gap:16px;flex-wrap:wrap;padding-bottom:96px;}
   .btn{display:inline-flex;align-items:center;justify-content:space-between;gap:36px;padding:20px 28px;font:500 12px/1 var(--font-inter),sans-serif;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;cursor:pointer;border:1px solid transparent;}
   .btn-primary{background:var(--gold);color:var(--ink);font-weight:600;min-width:300px;}
@@ -106,7 +107,7 @@
   .pull-attr b{display:block;color:var(--bronze);margin-bottom:6px;}
   .mission-aside{padding-top:8px;}
   .mission-aside p{font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:20px;}
-  .mission-aside p:first-child::first-letter{font-family:var(--font-cormorant),serif;font-weight:600;font-style:italic;font-size:64px;float:left;line-height:.85;padding:6px 12px 0 0;color:var(--bronze);}
+  .mission-aside .mission-name{font-size:1.25em; font-style: italic; font-weight:500;color:var(--bronze);}
   @media (max-width:900px){.mission-body{grid-template-columns:1fr;gap:48px;}}
 
   /* ------- topics ------- */
@@ -209,6 +210,9 @@
   .foot-copy{font:400 13px/1.4 var(--font-inter),sans-serif;color:color-mix(in srgb, var(--cream) 55%, transparent);}
   .foot-links{display:flex;gap:28px;font:500 12px/1 var(--font-inter),sans-serif;letter-spacing:.18em;text-transform:uppercase;color:color-mix(in srgb, var(--cream) 70%, transparent);}
   .foot-links a:hover{color:var(--cream);}
+  .foot-credit{margin-top:40px;padding-top:24px;border-top:1px solid color-mix(in srgb, var(--cream) 8%, transparent);font:400 12px/1.4 var(--font-inter),sans-serif;color:color-mix(in srgb, var(--cream) 55%, transparent);}
+  .foot-credit a{color:color-mix(in srgb, var(--cream) 75%, transparent);text-decoration:underline;text-underline-offset:3px;}
+  .foot-credit a:hover{color:var(--gold);}
   @media (max-width:760px){ .foot{flex-direction:column;align-items:flex-start;} }
 
   /* ------- stage photos (replaces design-tool image-slot) ------- */

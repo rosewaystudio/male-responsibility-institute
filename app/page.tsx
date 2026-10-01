@@ -36,14 +36,12 @@ export default function Home() {
                 <h1>
                   Where boyhood<br />meets <em>brotherhood,</em><br />responsibility takes root.
                 </h1>
-                <p className="lede">
-                  For more than three decades, Odis Bellinger has stood in front of young men, parents, educators, and
-                  policymakers with one premise:{" "}
-                  <em style={{ fontFamily: "var(--font-cormorant), serif", color: "var(--bronze)" }}>
-                    young men were not made for funeral processions and prisons.
-                  </em>{" "}
-                  The Male Responsibility Institute books him to say it out loud — on your stage.
-                </p>
+                  <p className="lede">
+                    For more than three decades, Odis Bellinger has stood in front of young men, parents, educators, and
+                    policymakers with one premise:{" "}
+                    <em className="lede-premise">young men were not made for funeral processions and prisons.</em>{" "}
+                    Male Responsibility Institute books him to say it out loud — on your stage.
+                  </p>
                 <div className="cta-row">
                   <a className="btn btn-primary" href="#book">
                     <span>Book a Speaking Engagement</span>
@@ -115,7 +113,7 @@ export default function Home() {
               </figure>
               <div className="mission-aside">
                 <p>
-                  The Male Responsibility Institute is the speaking and convening arm of the work Odis began in Southeast
+                  <em className="mission-name">Male Responsibility Institute</em> is the speaking and convening arm of the work Odis began in Southeast
                   Detroit in 1991 — when nearly three of every four children in the city were growing up in a
                   single-parent home, and the response from institutions was silence.
                 </p>
@@ -274,6 +272,13 @@ export default function Home() {
             {site.linkedin && <a href={site.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>}
           </nav>
         </div>
+        {/* NEW: Roseway Studio credit */}
+        <div className="wrap">
+          <p className="foot-credit">
+            Website powered by <a href="https://rosewaystudio.com">Roseway Studio</a>
+          </p>
+        </div>
+        {/* END NEW */}
       </footer>
     </>
   );
