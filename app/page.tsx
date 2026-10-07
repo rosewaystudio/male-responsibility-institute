@@ -56,7 +56,7 @@ export default function Home() {
               <div className="hero-portrait">
                 <Image
                   className="hero-img"
-                  src="/images/odis_bellinger_headshot.png"
+                  src="/images/odis_bellinger_headshot_1.png"
                   alt="Odis Bellinger"
                   width={978}
                   height={1211}
