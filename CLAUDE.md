@@ -38,7 +38,7 @@ All copywriting, pricing, links, and event data live in [lib/content.ts](lib/con
 All styles are in [app/globals.css](app/globals.css) (vanilla CSS with CSS custom properties). Key design tokens:
 
 | Variable | Value | Usage |
-|---|---|---|
+| --- | --- | --- |
 | `--color-ink` | `#1C1A17` | Primary text |
 | `--color-gold` | `#D4962E` | CTAs, accents |
 | `--color-bronze` | `#A8621C` | Secondary accents |
