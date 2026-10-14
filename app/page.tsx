@@ -3,7 +3,7 @@ import BookingForm from "@/components/BookingForm";
 import SignupForm from "@/components/SignupForm";
 import SpeakerReel from "@/components/SpeakerReel";
 import SmartLink from "@/components/SmartLink";
-import { audiences, book, book2, bundlePerks, events, site, testimonials, topics } from "@/lib/content";
+import { audiences, book, book2, bundlePerks, events, site, testimonials, yearsOfService } from "@/lib/content";
 
 const roman = ["i.", "ii.", "iii.", "iv.", "v.", "vi."];
 
@@ -18,9 +18,9 @@ export default function Home() {
           </a>
           <nav className="nav-links" aria-label="Sections">
             <a href="#speaking">Speaking</a>
-            <a href="#book">Books</a>
-            <a href="#events">Events</a>
             <a href="#reel">Watch</a>
+            <a href="#events">Events</a>
+            <a href="#book">Books</a>
           </nav>
           <div className="nav-ctas">
             <a className="btn btn-line" href="#book">Buy the Book</a>
@@ -41,16 +41,16 @@ export default function Home() {
                 Odis Bellinger is here to tell young men <em>they can win.</em>
               </h1>
               <p className="lede">
-                For 34 years, Odis has worked with young men across Detroit and beyond. Book him for your stage, or
-                start with his book on seven steps to promote the success of African American males.
+                For {yearsOfService} years, Odis has worked with young men across Detroit and beyond. Book him for your stage, or
+                start with his book on seven steps to promote the success of young African American males.
               </p>
               <div className="btn-row">
                 <a className="btn btn-gold" href="#inquire">
-                  <span>Book a Speaking Engagement</span>
+                  <span>Book Odis</span>
                   <span className="arr" aria-hidden="true">→</span>
                 </a>
                 <a className="btn btn-line" href="#book">
-                  <span>Get the Book · {book.paperback.price}</span>
+                  <span>Buy the Book · {book.paperback.price}</span>
                   <span className="arr" aria-hidden="true">→</span>
                 </a>
               </div>
@@ -65,6 +65,7 @@ export default function Home() {
                 sizes="(max-width: 980px) 480px, 45vw"
                 priority
               />
+              <p className="hero-caption">Odis Bellinger · MA, LLPC</p>
               <Image
                 className="hero-book"
                 src={book.cover}
@@ -85,15 +86,15 @@ export default function Home() {
                 Bring Odis to <em>your stage.</em>
               </h2>
               <p>Keynotes, workshops, and assemblies for schools, corporations, foundations, faith communities, and justice systems.</p>
-              <a className="link" href="#topics">
-                See the six talks <span aria-hidden="true">→</span>
+              <a className="link" href="#reel">
+                Watch Odis speak <span aria-hidden="true">→</span>
               </a>
             </div>
             <div className="path">
-              <span className="path-k">02 · The Book</span>
-              <h2 className="path-title">
+              <span className="path-k">02 · The Books</span>
+              <p className="path-title">
                 <em>{book.title}</em>
-              </h2>
+              </p>
               <p>
                 Seven steps to promote the success of African American males. Paperback {book.paperback.price}.{" "}
                 {book.kindle.price} on Kindle.
@@ -101,6 +102,31 @@ export default function Home() {
               <a className="link" href="#book">
                 Get your copy <span aria-hidden="true">→</span>
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ TESTIMONIALS ============ */}
+        <section className="block" aria-labelledby="testimonials-heading">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">In Their Words</span>
+              <h2 id="testimonials-heading">
+                What educators and <em>parents</em> say.
+              </h2>
+            </div>
+            <div className="quotes">
+              {testimonials.map((t) => (
+                <figure className="qt" key={t.name}>
+                  <blockquote>
+                    <p>{t.quote}</p>
+                  </blockquote>
+                  <figcaption>
+                    <b>{t.name}</b>
+                    <span>{t.role}</span>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
@@ -123,15 +149,80 @@ export default function Home() {
             <div className="mission-copy">
               <span className="eyebrow">The Mission</span>
               <p style={{ marginTop: 24 }}>
-                <span className="mission-name">The Male Responsibility Institute</span> is the speaking and publishing home
-                for the work Odis began in Southeast Detroit in {site.founded}, when the city&apos;s institutions were doing
-                little for its boys.
+                <span className="mission-name">The Male Responsibility Institute</span> is the speaking and publishing
+                home for the work Odis began in Southeast Detroit in {site.founded}, when the city&apos;s institutions
+                were doing little for its boys.
               </p>
               <p>
                 It started as an after-school program at a single school. Today it&apos;s a national platform, built on
-                what Odis has said for three decades: every boy is someone&apos;s responsibility, and every boy grows up
+                what Odis has said for more than three decades: every boy is someone&apos;s responsibility, and every boy grows up
                 to carry responsibility of his own.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ REEL ============ */}
+        <section className="block dark" id="reel">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">Watch</span>
+              <h2>
+                See Odis <em>in the room.</em>
+              </h2>
+            </div>
+            <SpeakerReel />
+          </div>
+        </section>
+
+        {/* ============ AUDIENCES ============ */}
+        <section className="block" id="audiences">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">Who Books Odis</span>
+              <h2>
+                Audiences Odis <em>speaks</em> to.
+              </h2>
+            </div>
+            <div className="aud">
+              {audiences.map((aud) => (
+                <div key={aud.title}>
+                  <h3>{aud.title}</h3>
+                  <p>{aud.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ EVENTS ============ */}
+        <section className="block dark" id="events">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">Upcoming</span>
+              <h2>
+                Where Odis is <em>speaking next.</em>
+              </h2>
+            </div>
+            {events.map((ev, i) => (
+              <div className="ev" key={`${ev.month}-${ev.day}-${i}`}>
+                <div className="ev-date">
+                  <span>{ev.month}</span>
+                  <b>{ev.day}</b>
+                </div>
+                <div>
+                  <h3>{ev.name}</h3>
+                  <p>{ev.place}</p>
+                </div>
+                <span className="ev-tag">{ev.tag}</span>
+              </div>
+            ))}
+            <div className="ev-foot">
+              <span>Want Odis at your event?</span>
+              <a className="btn btn-gold" href="#inquire">
+                <span>Request a Date</span>
+                <span className="arr" aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
         </section>
@@ -220,54 +311,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ REEL ============ */}
-        <section className="block dark" id="reel">
-          <div className="wrap">
-            <div className="head">
-              <span className="eyebrow">Watch</span>
-              <h2>
-                See Odis <em>in the room.</em>
-              </h2>
-            </div>
-            <SpeakerReel />
-          </div>
-        </section>
-
-        {/* ============ TOPICS ============ */}
-        <section className="block" id="topics">
-          <div className="wrap">
-            <div className="head">
-              <span className="eyebrow">Speaking Topics</span>
-              <h2>
-                Six talks, built around <em>who&apos;s in the room.</em>
-              </h2>
-            </div>
-            <div>
-              {topics.map((topic, i) => (
-                <article className="topic" key={topic.titleEm}>
-                  <div className="t-num">
-                    <small>No. {String(i + 1).padStart(2, "0")}</small>
-                    {topic.format}
-                  </div>
-                  <div>
-                    <h3>
-                      {topic.titleLead}
-                      <em>{topic.titleEm}</em>
-                      {topic.titleTail}
-                    </h3>
-                    <p>{topic.body}</p>
-                  </div>
-                  <div className="t-meta">
-                    {topic.meta[0]}
-                    <br />
-                    {topic.meta[1]}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ============ BOOK + TALK BUNDLE ============ */}
         <section className="block bundle" id="bundle">
           <div className="wrap bundle-grid">
@@ -296,83 +339,6 @@ export default function Home() {
                 <span>Ask About the Bundle</span>
                 <span className="arr" aria-hidden="true">→</span>
               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ EVENTS ============ */}
-        <section className="block dark" id="events">
-          <div className="wrap">
-            <div className="head">
-              <span className="eyebrow">Upcoming</span>
-              <h2>
-                Where Odis is <em>speaking next.</em>
-              </h2>
-            </div>
-            {events.map((ev, i) => (
-              <div className="ev" key={`${ev.month}-${ev.day}-${i}`}>
-                <div className="ev-date">
-                  <span>{ev.month}</span>
-                  <b>{ev.day}</b>
-                </div>
-                <div>
-                  <h3>{ev.name}</h3>
-                  <p>{ev.place}</p>
-                </div>
-                <span className="ev-tag">{ev.tag}</span>
-              </div>
-            ))}
-            <div className="ev-foot">
-              <span>Want Odis at your event?</span>
-              <a className="btn btn-gold" href="#inquire">
-                <span>Request a Date</span>
-                <span className="arr" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ TESTIMONIALS ============ */}
-        <section className="block" aria-labelledby="testimonials-heading">
-          <div className="wrap">
-            <div className="head">
-              <span className="eyebrow">In Their Words</span>
-              <h2 id="testimonials-heading">
-                What hosts and <em>graduates</em> say.
-              </h2>
-            </div>
-            <div className="quotes">
-              {testimonials.map((t) => (
-                <figure className="qt" key={t.name}>
-                  <blockquote>
-                    <p>{t.quote}</p>
-                  </blockquote>
-                  <figcaption>
-                    <b>{t.name}</b>
-                    <span>{t.role}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============ AUDIENCES ============ */}
-        <section className="block" style={{ paddingTop: 0 }} id="audiences">
-          <div className="wrap">
-            <div className="head">
-              <span className="eyebrow">Who Books Odis</span>
-              <h2>
-                Audiences he&apos;s <em>already</em> spoken to.
-              </h2>
-            </div>
-            <div className="aud">
-              {audiences.map((aud) => (
-                <div key={aud.title}>
-                  <h3>{aud.title}</h3>
-                  <p>{aud.body}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

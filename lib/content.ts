@@ -15,6 +15,10 @@ export const site = {
   credit: { label: "Roseway Studio", href: "https://rosewaystudio.com" }, // VERIFY URL
 };
 
+// Years of service, counted from the founding year so it never goes stale.
+// Updates with each deploy (a redeploy in January rolls it forward).
+export const yearsOfService = new Date().getFullYear() - Number(site.founded);
+
 // Links: "#" means the destination isn't decided yet. Paste full URLs when you have them.
 export const book = {
   title: "No Reason Why You Can't Win",
@@ -62,61 +66,6 @@ export const reel = {
   label: "Video placeholder · 2–3 min",
 };
 
-export type Topic = {
-  format: string;
-  titleLead: string;
-  titleEm: string;
-  titleTail?: string;
-  body: string;
-  meta: [string, string];
-};
-
-export const topics: Topic[] = [
-  {
-    format: "Keynote",
-    titleLead: "Our Boys Count: ",
-    titleEm: "the case for early intervention",
-    body: "Odis's signature talk: why ages 8 to 18 decide who a young man becomes, and how a mentoring program has lasted 34 years.",
-    meta: ["45–60 min", "Schools · Conferences"],
-  },
-  {
-    format: "Workshop",
-    titleLead: "Fatherless, ",
-    titleEm: "not future-less",
-    body: "A working session for educators, counselors, and caseworkers on what kids from homes without a father actually need from the adults around them.",
-    meta: ["Half day · up to 80", "Counselors · Social Workers"],
-  },
-  {
-    format: "Keynote",
-    titleLead: "Mental health is a ",
-    titleEm: "young man's",
-    titleTail: " health",
-    body: "Drawn from Odis's clinical practice. A new way for parents and youth organizations to talk about boys' mental health.",
-    meta: ["45–90 min", "Health · PTOs · Faith"],
-  },
-  {
-    format: "Fireside",
-    titleLead: "Proactive, ",
-    titleEm: "not reactive",
-    body: "A frank conversation about race, expectations, and identity for Black and Brown young men, for ERGs and leadership offsites.",
-    meta: ["60 min moderated", "Corporate · Foundations"],
-  },
-  {
-    format: "Convening",
-    titleLead: "It's Possible: ",
-    titleEm: "mentorship at scale",
-    body: "Program design for school districts, justice systems, and funders: what works, what doesn't, and what to measure.",
-    meta: ["Half day", "Districts · Philanthropy"],
-  },
-  {
-    format: "Direct",
-    titleLead: "To the young men ",
-    titleEm: "in this room",
-    body: "For young men ages 12–22, with no slides. Pairs naturally with copies of the book for every student.",
-    meta: ["35–45 min · up to 800", "High Schools · Universities"],
-  },
-];
-
 // Upcoming events: all PLACEHOLDER. Remove past events as dates go by.
 export const events = [
   { month: "Nov", day: "14", name: "Event name", place: "Venue · City, State", tag: "Placeholder" },
@@ -129,16 +78,16 @@ export const testimonials = [
   {
     quote:
       "As a kid growing up in the inner city, Odis helped me make the right decisions, not the wrong ones. He always said, write it down. Put it on your refrigerator.",
-    name: "Walter Waters",
-    role: "Program graduate · Detroit",
+    name: "Michael Jackson",
+    role: "Program Attendee · Detroit",
   },
   {
-    quote: "I invited brother Odis to come to Toronto and speak to our young boys. What an impact he made.",
-    name: "Community Host",
-    role: "Toronto, Canada",
+    quote: "I invited brother Odis to come speak to our young boys. What an impact he made.",
+    name: "School Principal",
+    role: "Detroit, MI",
   },
   {
-    quote: "B2M has had a powerful positive effect on our grandsons, who went from below grade level to above it.",
+    quote: "MRI has had a powerful positive effect on our grandsons, who went from below grade level to above it.",
     name: "Grandparent & Guardian",
     role: "Metro Detroit",
   },
@@ -146,10 +95,8 @@ export const testimonials = [
 
 export const audiences = [
   { title: "K–12 Districts", body: "Assemblies, parent nights, and PD days." },
-  { title: "Corporations & ERGs", body: "Leadership offsites and ERG events." },
-  { title: "Philanthropy", body: "Convenings for youth-development funders." },
+  { title: "Philanthropy", body: "Convenings for youth-development nonprofits." },
   { title: "Faith & Community", body: "Churches, men's ministries, and reentry organizations." },
-  { title: "Universities", body: "Guest lectures and panels." },
   { title: "Government & Justice", body: "Juvenile justice centers and public-safety briefings." },
 ];
 
@@ -161,9 +108,7 @@ export const bundlePerks = [
 
 export const audienceOptions = [
   "K–12 school / district",
-  "University",
-  "Corporation / ERG",
-  "Philanthropy / foundation",
+  "Philanthropy / nonprofit",
   "Faith / community",
   "Government / justice",
   "Other",
