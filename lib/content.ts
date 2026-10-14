@@ -1,25 +1,66 @@
-// All page copy lives here so text edits never require touching layout code.
-// Items marked VERIFY came from the design mockup and must be confirmed with the client before launch.
+// All page copy and links live here, so text edits never require touching layout code.
+// PLACEHOLDER = waiting on Odis. VERIFY = in the design, but confirm before launch.
 
 export const site = {
   name: "Male Responsibility Institute",
-  title: "Male Responsibility Institute — Odis Bellinger",
+  title: "Odis Bellinger — Speaker & Author · Male Responsibility Institute",
   description:
-    "Book Odis Bellinger, MA, LLPC — founder of the Building Better Men program — for keynotes, workshops, and convenings on mentoring, fatherlessness, and young men's mental health.",
+    "Book Odis Bellinger, MA, LLPC, for keynotes, workshops, and assemblies, or start with his book, No Reason Why You Can't Win: 7 Steps to Promote the Success of African American Males.",
+  founded: "1991",
   contact: {
-    email: "booking@maleresponsibility.org", // VERIFY: domain not purchased yet
-    phone: "(313) 555 · 0142", // VERIFY: 555 is a placeholder number
+    email: "booking@maleresponsibility.org", // PLACEHOLDER: domain not purchased yet
+    phone: "(313) 555 · 0142", // PLACEHOLDER: 555 is not a real number
     location: "Detroit, MI · Available nationally",
   },
-  linkedin: "", // VERIFY: add Odis's LinkedIn URL; the footer link stays hidden until set
+  credit: { label: "Roseway Studio", href: "https://rosewaystudio.com" }, // VERIFY URL
 };
 
-export const tiles = [
-  { label: "Founded", big: "1991", text: "Building Better Men Program, Detroit" },
-  { label: "Young men reached", big: "20,000+", text: "Across mentoring, mentorship cohorts & keynotes" }, // VERIFY figure
-  { label: "Credentials", lines: ["MA, LLPC", "Wayne State University", "Licensed Counselor"] }, // VERIFY license is current
-  { label: "Featured in", lines: ["Forbes", "WXYZ Detroit", "Metro Parent", "Ford Men of Courage"] }, // VERIFY each outlet
-];
+// Links: "#" means the destination isn't decided yet. Paste full URLs when you have them.
+export const book = {
+  title: "No Reason Why You Can't Win",
+  titleLead: "No Reason Why ",
+  titleEm: "You Can't Win",
+  subtitle: "7 Steps to Promote the Success of African American Males", // VERIFY: cover says "Young African American Males"
+  author: "Odis Bellinger, MA, LLPC",
+  cover: "/images/book-no-reason-why-you-cant-win.png", // VERIFY: 212px wide; ask for a high-res cover
+  paperback: {
+    price: "$6.99", // VERIFY
+    orderDirectHref: "#", // PLACEHOLDER: payment link (Stripe, Square, Shopify…)
+    amazonHref: "#", // PLACEHOLDER: Amazon paperback listing
+  },
+  kindle: {
+    price: "Free", // VERIFY: Amazon doesn't let authors set $0 permanently
+    href: "#", // PLACEHOLDER: Amazon Kindle listing
+  },
+};
+
+// Second book: every field is a placeholder. Set `cover` to an image path once you have it.
+export const book2: {
+  titleLead: string;
+  titleEm: string;
+  subtitle: string;
+  description: string;
+  price: string;
+  href: string;
+  tag: string;
+  cover?: string;
+} = {
+  titleLead: "Book Title ",
+  titleEm: "Placeholder",
+  subtitle: "Subtitle placeholder",
+  description: "One- or two-line description of the second book goes here.",
+  price: "$0.00",
+  href: "#",
+  tag: "Placeholder",
+};
+
+// Speaker reel. Paste an embed URL (YouTube: https://www.youtube-nocookie.com/embed/VIDEO_ID,
+// Vimeo: https://player.vimeo.com/video/VIDEO_ID) and the placeholder becomes a player.
+export const reel = {
+  embedUrl: "", // PLACEHOLDER
+  title: "Speaker Reel",
+  label: "Video placeholder · 2–3 min",
+};
 
 export type Topic = {
   format: string;
@@ -27,121 +68,95 @@ export type Topic = {
   titleEm: string;
   titleTail?: string;
   body: string;
-  tags: string;
-  length: [string, string];
+  meta: [string, string];
 };
 
 export const topics: Topic[] = [
   {
     format: "Keynote",
-    titleLead: "Our Boys Count — ",
+    titleLead: "Our Boys Count: ",
     titleEm: "the case for early intervention",
-    body: "The signature talk. Why the window between 8 and 18 decides who a young man becomes, what the data says about fatherlessness, and the practical architecture of a mentoring program that has held for 34 years.",
-    tags: "Schools · Districts · Conferences",
-    length: ["45–60 min keynote", "+ optional Q&A"],
+    body: "Odis's signature talk: why ages 8 to 18 decide who a young man becomes, and how a mentoring program has lasted 34 years.",
+    meta: ["45–60 min", "Schools · Conferences"],
   },
   {
     format: "Workshop",
     titleLead: "Fatherless, ",
     titleEm: "not future-less",
-    body: "For educators, counselors, and case workers: a working session on what kids from absent-father homes actually need from the adults around them, and how to read the behaviors most often misdiagnosed as defiance.",
-    tags: "Counselors · DCFS · Social Workers",
-    length: ["Half-day workshop", "up to 80 participants"],
+    body: "A working session for educators, counselors, and caseworkers on what kids from homes without a father actually need from the adults around them.",
+    meta: ["Half day · up to 80", "Counselors · Social Workers"],
   },
   {
     format: "Keynote",
     titleLead: "Mental health is a ",
-    titleEm: "young man’s",
+    titleEm: "young man's",
     titleTail: " health",
-    body: "Drawn from Odis’s clinical practice as a licensed counselor. Reframes the conversation around boys’ mental health for parents, pediatricians, and youth-serving organizations — past slogans, into the room.",
-    tags: "Health Systems · PTOs · Faith Communities",
-    length: ["45 min + panel", "or 90 min standalone"],
+    body: "Drawn from Odis's clinical practice. A new way for parents and youth organizations to talk about boys' mental health.",
+    meta: ["45–90 min", "Health · PTOs · Faith"],
   },
   {
     format: "Fireside",
     titleLead: "Proactive, ",
     titleEm: "not reactive",
-    titleTail: " — race, boys, and the long game",
-    body: "A conversation about race, expectation, and identity for Black and Brown young men. Designed for HR groups, ERGs, and leadership offsites that want a real talk rather than a polished one.",
-    tags: "Corporate · ERGs · Foundations",
-    length: ["60 min fireside", "moderated format"],
+    body: "A frank conversation about race, expectations, and identity for Black and Brown young men, for ERGs and leadership offsites.",
+    meta: ["60 min moderated", "Corporate · Foundations"],
   },
   {
     format: "Convening",
-    titleLead: "It’s Possible — ",
-    titleEm: "seeing the men they could become",
-    body: "A program-design session for school districts, juvenile justice systems, and philanthropies building or funding mentorship at scale. What works, what does not, and what gets measured.",
-    tags: "Districts · DOC · Philanthropy",
-    length: ["Half-day convening", "scoped to host"],
+    titleLead: "It's Possible: ",
+    titleEm: "mentorship at scale",
+    body: "Program design for school districts, justice systems, and funders: what works, what doesn't, and what to measure.",
+    meta: ["Half day", "Districts · Philanthropy"],
   },
   {
     format: "Direct",
     titleLead: "To the young men ",
     titleEm: "in this room",
-    body: "Odis’s talk for young men ages 12–22. No filler, no slides. The same conversation that has held 20,000 boys’ attention in cafeterias, gymnasiums, and detention halls from Detroit to Toronto.",
-    tags: "High Schools · JJC · Universities",
-    length: ["35–45 min assembly", "up to 800 students"],
+    body: "For young men ages 12–22, with no slides. Pairs naturally with copies of the book for every student.",
+    meta: ["35–45 min · up to 800", "High Schools · Universities"],
   },
+];
+
+// Upcoming events: all PLACEHOLDER. Remove past events as dates go by.
+export const events = [
+  { month: "Nov", day: "14", name: "Event name", place: "Venue · City, State", tag: "Placeholder" },
+  { month: "Dec", day: "05", name: "Event name", place: "Venue · City, State", tag: "Placeholder" },
+  { month: "Jan", day: "22", name: "Event name", place: "Venue · City, State", tag: "Placeholder" },
 ];
 
 // VERIFY: confirm each person agreed to be quoted, by name, on a public site.
 export const testimonials = [
   {
     quote:
-      "Building Better Men is a program that speaks specifically to their individual challenges as young boys and provides them with healthy, beneficial ways to express and navigate any issues or challenges.",
-    name: "Stephanie Glenn",
-    role: "Principal, Pembroke Academy National Heritage Academies Charter Schools (MI)",
+      "As a kid growing up in the inner city, Odis helped me make the right decisions, not the wrong ones. He always said, write it down. Put it on your refrigerator.",
+    name: "Walter Waters",
+    role: "Program graduate · Detroit",
   },
   {
-    quote:
-      "My boys have been very receptive of the B2M program. Every week a new student sneaks into the leadership class. One student informed me, Everybody wants to be in it!",
-    name: "Tonya Corbitt",
-    role: "Assistant Principal, North Farmington High School, Farmington Public Schools System (MI)",
+    quote: "I invited brother Odis to come to Toronto and speak to our young boys. What an impact he made.",
+    name: "Community Host",
+    role: "Toronto, Canada",
   },
   {
-    quote:
-      "This program has given my son tools for communication, reasoning, responsibility, and more. His communication skills at home, school, and in the community have improved tremendously.",
-    name: "Mother of M.W, 14 years old",
-    role: "Parent, Detroit Public Schools Community District (MI)",
+    quote: "B2M has had a powerful positive effect on our grandsons, who went from below grade level to above it.",
+    name: "Grandparent & Guardian",
+    role: "Metro Detroit",
   },
-];
-
-// Drop photos into /public/images/stage and set `src` (e.g. "/images/stage/keynote.jpg").
-export const stagePhotos: { label: string; alt: string; src?: string }[] = [
-  { label: "Odis speaking · keynote", alt: "Odis Bellinger delivering a keynote" },
-  {
-    label: "With young men · classroom",
-    alt: "Odis Bellinger leading a classroom of young men in Building Better Men gear, hands raised",
-    src: "/images/stage/classroom.png", // VERIFY: photo release covers the students shown
-  },
-  { label: "On stage · audience wide", alt: "Wide view of Odis Bellinger on stage before an audience" },
 ];
 
 export const audiences = [
-  {
-    title: "K–12 School Districts",
-    body: "All-school assemblies, parent nights, and PD days for boys’ achievement and engagement — including Detroit Public Schools Community District and Charter networks.",
-  },
-  {
-    title: "Corporations & ERGs",
-    body: "Forbes-circuit talks, leadership offsites, and ERG events for organizations investing in the development of Black and Brown male employees and the communities around their offices.",
-  },
-  {
-    title: "Philanthropy & Foundations",
-    body: "Convenings for funders building youth-development portfolios — including past partners Ford Motor Company Fund, Skillman Foundation, and Matrix Human Services.", // VERIFY partners
-  },
-  {
-    title: "Faith & Community Institutions",
-    body: "Churches, men’s ministries, community centers, and reentry organizations across Michigan, Ontario, Illinois, Georgia, and the Carolinas.",
-  },
-  {
-    title: "Universities & Research",
-    body: "Guest lectures and panels on mass incarceration, mentorship at scale, and the social-emotional development of young men — Wayne State, Fayetteville State, and others.",
-  },
-  {
-    title: "Government & Justice",
-    body: "Juvenile justice centers, sheriffs’ departments, and city-level public safety briefings on the early-intervention argument for boys ages 8–18.",
-  },
+  { title: "K–12 Districts", body: "Assemblies, parent nights, and PD days." },
+  { title: "Corporations & ERGs", body: "Leadership offsites and ERG events." },
+  { title: "Philanthropy", body: "Convenings for youth-development funders." },
+  { title: "Faith & Community", body: "Churches, men's ministries, and reentry organizations." },
+  { title: "Universities", body: "Guest lectures and panels." },
+  { title: "Government & Justice", body: "Juvenile justice centers and public-safety briefings." },
+];
+
+export const bundlePerks = [
+  "A paperback copy for every attendee, at bulk pricing",
+  "Book signing after the talk",
+  "Copies shipped to your venue before the event",
 ];
 
 export const audienceOptions = [

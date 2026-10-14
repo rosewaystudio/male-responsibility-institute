@@ -3,10 +3,10 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-// Self-hosted at build time by next/font (replaces the 17 embedded font files in the export).
+// Self-hosted at build time by next/font (replaces the font files embedded in the design export).
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
@@ -14,7 +14,7 @@ const cormorant = Cormorant_Garamond({
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     type: "website",
-    images: [{ url: "/images/odis-bellinger.jpg", width: 978, height: 1211, alt: "Odis Bellinger" }],
+    images: [{ url: "/images/og-odis-bellinger.jpg", width: 1000, height: 1228, alt: "Odis Bellinger" }],
   },
 };
 

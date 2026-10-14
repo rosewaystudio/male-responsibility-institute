@@ -1,6 +1,6 @@
 {
-  "name": "mri-site",
-  "version": "0.1.0",
+  "name": "male-responsibility-institute",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

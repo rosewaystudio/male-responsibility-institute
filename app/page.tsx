@@ -1,7 +1,9 @@
 import Image from "next/image";
 import BookingForm from "@/components/BookingForm";
-import StagePhoto from "@/components/StagePhoto";
-import { audiences, site, stagePhotos, testimonials, tiles, topics } from "@/lib/content";
+import SignupForm from "@/components/SignupForm";
+import SpeakerReel from "@/components/SpeakerReel";
+import SmartLink from "@/components/SmartLink";
+import { audiences, book, book2, bundlePerks, events, site, testimonials, topics } from "@/lib/content";
 
 const roman = ["i.", "ii.", "iii.", "iv.", "v.", "vi."];
 
@@ -11,203 +13,363 @@ export default function Home() {
       {/* ============ NAV ============ */}
       <header className="nav">
         <div className="wrap nav-inner">
-          <a className="brand" href="#top" aria-label={`${site.name} — back to top`}>
-            <Image className="brand-logo" src="/images/mri-logo.png" alt={site.name} width={896} height={592} priority />
+          <a href="#top" aria-label={`${site.name}, back to top`}>
+            <Image className="brand-logo" src="/images/mri-logo.png" alt={site.name} width={905} height={595} priority />
           </a>
           <nav className="nav-links" aria-label="Sections">
-            <a href="#mission">Mission</a>
-            <a href="#topics">Topics</a>
-            <a href="#stage">On Stage</a>
-            <a href="#audiences">Audiences</a>
+            <a href="#speaking">Speaking</a>
+            <a href="#book">Books</a>
+            <a href="#events">Events</a>
+            <a href="#reel">Watch</a>
           </nav>
-          <a className="nav-cta" href="#book">
-            Book Odis <span className="serif" style={{ fontSize: 16, letterSpacing: 0 }}>→</span>
-          </a>
+          <div className="nav-ctas">
+            <a className="btn btn-line" href="#book">Buy the Book</a>
+            <a className="btn btn-gold" href="#inquire">
+              <span>Book Odis</span> <span className="arr" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </header>
 
       <main>
         {/* ============ HERO ============ */}
         <section className="hero" id="top">
-          <div className="wrap">
-            <div className="hero-grid">
-              <div>
-                <span className="eyebrow">Odis Bellinger · Founder &amp; Speaker</span>
-                <h1>
-                  Where boyhood<br />meets <em>brotherhood,</em><br />responsibility takes root.
-                </h1>
-                  <p className="lede">
-                    For more than three decades, Odis Bellinger has stood in front of young men, parents, educators, and
-                    policymakers with one premise:{" "}
-                    <em className="lede-premise">young men were not made for funeral processions and prisons.</em>{" "}
-                    Male Responsibility Institute books him to say it out loud — on your stage.
-                  </p>
-                <div className="cta-row">
-                  <a className="btn btn-primary" href="#book">
-                    <span>Book a Speaking Engagement</span>
-                    <span className="arr" aria-hidden="true">→</span>
-                  </a>
-                  <a className="btn btn-secondary" href="#topics">
-                    <span>Explore the Topics</span>
-                    <span className="arr" aria-hidden="true">↓</span>
-                  </a>
-                </div>
+          <div className="wrap hero-grid">
+            <div>
+              <span className="eyebrow">Speaker · Author · Counselor</span>
+              <h1>
+                Odis Bellinger is here to tell young men <em>they can win.</em>
+              </h1>
+              <p className="lede">
+                For 34 years, Odis has worked with young men across Detroit and beyond. Book him for your stage, or
+                start with his book on seven steps to promote the success of African American males.
+              </p>
+              <div className="btn-row">
+                <a className="btn btn-gold" href="#inquire">
+                  <span>Book a Speaking Engagement</span>
+                  <span className="arr" aria-hidden="true">→</span>
+                </a>
+                <a className="btn btn-line" href="#book">
+                  <span>Get the Book · {book.paperback.price}</span>
+                  <span className="arr" aria-hidden="true">→</span>
+                </a>
               </div>
-              <div className="hero-portrait">
-                <Image
-                  className="hero-img"
-                  src="/images/odis_bellinger_headshot_1.png"
-                  alt="Odis Bellinger"
-                  width={978}
-                  height={1211}
-                  sizes="(max-width: 980px) 480px, 45vw"
-                  priority
-                />
-                <span className="hero-caption">Odis Bellinger · MA, LLPC</span>
-              </div>
+            </div>
+            <div className="hero-art">
+              <Image
+                className="hero-portrait"
+                src="/images/odis-bellinger.png"
+                alt="Odis Bellinger"
+                width={1320}
+                height={1621}
+                sizes="(max-width: 980px) 480px, 45vw"
+                priority
+              />
+              <Image
+                className="hero-book"
+                src={book.cover}
+                alt={`${book.title} book cover`}
+                width={212}
+                height={327}
+              />
             </div>
           </div>
         </section>
 
-        {/* ============ INFO TILES ============ */}
-        <section className="tiles" aria-label="At a glance">
-          <div className="wrap">
-            <div className="tiles-inner">
-              {tiles.map((tile) => (
-                <div className="tile" key={tile.label}>
-                  <span className="tile-label">{tile.label}</span>
-                  <span className="tile-value">
-                    {tile.big && <span className="big">{tile.big}</span>}
-                    {tile.lines
-                      ? tile.lines.map((line, i) => (
-                          <span key={line}>{i > 0 && <br />}{line}</span>
-                        ))
-                      : tile.text}
-                  </span>
-                </div>
-              ))}
+        {/* ============ TWO PATHS ============ */}
+        <section className="dark" aria-label="Speaking and the book">
+          <div className="wrap paths">
+            <div className="path" id="speaking">
+              <span className="path-k">01 · Speaking</span>
+              <h2 className="path-title">
+                Bring Odis to <em>your stage.</em>
+              </h2>
+              <p>Keynotes, workshops, and assemblies for schools, corporations, foundations, faith communities, and justice systems.</p>
+              <a className="link" href="#topics">
+                See the six talks <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <div className="path">
+              <span className="path-k">02 · The Book</span>
+              <h2 className="path-title">
+                <em>{book.title}</em>
+              </h2>
+              <p>
+                Seven steps to promote the success of African American males. Paperback {book.paperback.price}.{" "}
+                {book.kindle.price} on Kindle.
+              </p>
+              <a className="link" href="#book">
+                Get your copy <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
         </section>
 
         {/* ============ MISSION ============ */}
-        <section className="story mission" id="mission">
-          <div className="wrap">
-            <div className="story-head">
+        <section className="block mission" id="mission">
+          <div className="wrap mission-grid">
+            <figure>
+              <span className="qmark" aria-hidden="true">“</span>
+              <blockquote>
+                <p className="pull">
+                  Early funeral processions and prisons are not for our Black males. College, trade schools, and
+                  entrepreneurship are.
+                </p>
+              </blockquote>
+              <figcaption className="attr">
+                <b>Odis Bellinger</b>Founder · {site.name}
+              </figcaption>
+            </figure>
+            <div className="mission-copy">
               <span className="eyebrow">The Mission</span>
-              <span className="chapter">Chapter I</span>
-              <h2>A man is the sum of <em>the boys</em> who were never given the chance to grow into one.</h2>
+              <p style={{ marginTop: 24 }}>
+                <span className="mission-name">The Male Responsibility Institute</span> is the speaking and publishing home
+                for the work Odis began in Southeast Detroit in {site.founded}, when the city&apos;s institutions were doing
+                little for its boys.
+              </p>
+              <p>
+                It started as an after-school program at a single school. Today it&apos;s a national platform, built on
+                what Odis has said for three decades: every boy is someone&apos;s responsibility, and every boy grows up
+                to carry responsibility of his own.
+              </p>
             </div>
-            <div className="mission-body">
-              <figure>
-                <span className="quote-mark" aria-hidden="true">“</span>
-                <blockquote>
-                  <p className="pull">
-                    Young men were not created for funeral home processions and prisons. They were made for college,
-                    trade schools, and entrepreneurship.
-                  </p>
-                </blockquote>
-                <figcaption className="pull-attr">
-                  <b>Odis Bellinger</b>Founder · Male Responsibility Institute
-                </figcaption>
-              </figure>
-              <div className="mission-aside">
-                <p>
-                  <em className="mission-name">Male Responsibility Institute</em> is the speaking and convening arm of the work Odis began in Southeast
-                  Detroit in 1991 — when nearly three of every four children in the city were growing up in a
-                  single-parent home, and the response from institutions was silence.
-                </p>
-                <p>
-                  What started as an after-school program at a single school is now a national platform. Odis speaks to
-                  school districts, corrections departments, philanthropies, faith communities, and corporate audiences
-                  about the same thing he has been saying for thirty-four years: every boy is someone’s responsibility,
-                  and every man becomes one.
-                </p>
-                <p>
-                  Booking him is not a motivational keynote. It is a conversation about what it costs a community when
-                  boys are written off — and what it returns when they are not.
-                </p>
+          </div>
+        </section>
+
+        {/* ============ THE BOOK ============ */}
+        <section className="block" id="book">
+          <div className="wrap book-grid">
+            <div>
+              <Image
+                className="book-cover"
+                src={book.cover}
+                alt={`${book.title}, by ${book.author}`}
+                width={212}
+                height={327}
+              />
+              <p className="book-meta">By {book.author}</p>
+            </div>
+            <div>
+              <span className="eyebrow">The Book</span>
+              <h2>
+                {book.titleLead}
+                <em>{book.titleEm}</em>
+              </h2>
+              <p className="book-sub">{book.subtitle}</p>
+              <p className="lede">
+                The message Odis has given in classrooms, gyms, and detention centers, in book form. Written for young
+                men and for the parents, mentors, and educators working alongside them.
+              </p>
+              <div className="formats">
+                <div className="fmt">
+                  <span className="fmt-k">Paperback</span>
+                  <span className="fmt-price">{book.paperback.price}</span>
+                  <SmartLink className="btn btn-gold" href={book.paperback.orderDirectHref}>
+                    <span>Order Direct</span>
+                    <span className="arr" aria-hidden="true">→</span>
+                  </SmartLink>
+                  <SmartLink className="alt" href={book.paperback.amazonHref}>
+                    or buy on Amazon
+                  </SmartLink>
+                </div>
+                <div className="fmt">
+                  <span className="fmt-k">Kindle</span>
+                  <span className="fmt-price">
+                    {book.kindle.price}
+                    <small>on Amazon</small>
+                  </span>
+                  <SmartLink className="btn btn-line" href={book.kindle.href}>
+                    <span>{book.kindle.price === "Free" ? "Download Free" : "Buy on Kindle"}</span>
+                    <span className="arr" aria-hidden="true">→</span>
+                  </SmartLink>
+                </div>
+              </div>
+              <p className="bulk-note">
+                Ordering for a school, program, or event? <a href="#bundle">See the Book + Talk bundle →</a>
+              </p>
+            </div>
+          </div>
+
+          <div className="wrap">
+            <div className="book2">
+              <div className="book2-cover">
+                {book2.cover ? (
+                  <Image src={book2.cover} alt={`${book2.titleLead}${book2.titleEm} book cover`} fill sizes="160px" />
+                ) : (
+                  "Book 2 cover"
+                )}
+              </div>
+              <div>
+                <span className="eyebrow">Also by Odis</span>
+                <h3>
+                  {book2.titleLead}
+                  <em>{book2.titleEm}</em>
+                </h3>
+                <p className="book2-sub">{book2.subtitle}</p>
+                <p className="book2-desc">{book2.description}</p>
+                <div className="book2-row">
+                  <span className="fmt-price" style={{ fontSize: 32 }}>{book2.price}</span>
+                  <SmartLink className="btn btn-line" href={book2.href}>
+                    <span>Buy the Book</span>
+                    <span className="arr" aria-hidden="true">→</span>
+                  </SmartLink>
+                  <span className="ev-tag book2-tag">{book2.tag}</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ============ TOPICS ============ */}
-        <section className="story topics" id="topics">
+        {/* ============ REEL ============ */}
+        <section className="block dark" id="reel">
           <div className="wrap">
-            <div className="story-head">
-              <span className="eyebrow">The Speaking Practice</span>
-              <span className="chapter">Chapter II</span>
-              <h2>Six talks, organized around <em>who is in the room</em> and what they came to hear.</h2>
+            <div className="head">
+              <span className="eyebrow">Watch</span>
+              <h2>
+                See Odis <em>in the room.</em>
+              </h2>
             </div>
-            {topics.map((topic, i) => (
-              <article className="topic" key={topic.titleEm}>
-                <div className="topic-num">
-                  <small>No. {String(i + 1).padStart(2, "0")}</small>
-                  {topic.format}
-                </div>
-                <div>
-                  <h3>
-                    {topic.titleLead}
-                    <em>{topic.titleEm}</em>
-                    {topic.titleTail}
-                  </h3>
-                  <p>{topic.body}</p>
-                  <span className="tags">{topic.tags}</span>
-                </div>
-                <div className="topic-meta">
-                  <div className="meta-label">Length</div>
-                  <div className="meta-value">
-                    {topic.length[0]}<br />{topic.length[1]}
-                  </div>
-                </div>
-                <span className="arr" aria-hidden="true">→</span>
-              </article>
-            ))}
+            <SpeakerReel />
           </div>
         </section>
 
-        {/* ============ ON STAGE ============ */}
-        <section className="story stage" id="stage">
+        {/* ============ TOPICS ============ */}
+        <section className="block" id="topics">
           <div className="wrap">
-            <div className="story-head">
-              <span className="eyebrow on-dark">On the Record</span>
-              <span className="chapter" style={{ color: "var(--gold)" }}>Chapter III</span>
-              <h2>What leaders and <em>parents</em> have said about Odis's programs impact on young men.</h2>
+            <div className="head">
+              <span className="eyebrow">Speaking Topics</span>
+              <h2>
+                Six talks, built around <em>who&apos;s in the room.</em>
+              </h2>
             </div>
-          </div>
-          <div className="wrap">
-            <div className="stage-grid">
-              {testimonials.map((t) => (
-                <figure className="testimonial" key={t.name}>
-                  <blockquote><p className="q">{t.quote}</p></blockquote>
-                  <figcaption className="who"><b>{t.name}</b><span>{t.role}</span></figcaption>
-                </figure>
+            <div>
+              {topics.map((topic, i) => (
+                <article className="topic" key={topic.titleEm}>
+                  <div className="t-num">
+                    <small>No. {String(i + 1).padStart(2, "0")}</small>
+                    {topic.format}
+                  </div>
+                  <div>
+                    <h3>
+                      {topic.titleLead}
+                      <em>{topic.titleEm}</em>
+                      {topic.titleTail}
+                    </h3>
+                    <p>{topic.body}</p>
+                  </div>
+                  <div className="t-meta">
+                    {topic.meta[0]}
+                    <br />
+                    {topic.meta[1]}
+                  </div>
+                </article>
               ))}
             </div>
           </div>
-          <div className="wrap" style={{ marginTop: 1 }}>
-            <div className="stage-strip">
-              {stagePhotos.map((photo) => (
-                <StagePhoto key={photo.label} {...photo} />
+        </section>
+
+        {/* ============ BOOK + TALK BUNDLE ============ */}
+        <section className="block bundle" id="bundle">
+          <div className="wrap bundle-grid">
+            <div className="bundle-visual">
+              <Image src={book.cover} alt="" width={212} height={327} />
+              <Image src={book.cover} alt={book.title} width={212} height={327} />
+              <Image src={book.cover} alt="" width={212} height={327} />
+            </div>
+            <div>
+              <span className="eyebrow">Book + Talk</span>
+              <h2>
+                Every attendee leaves with <em>a copy.</em>
+              </h2>
+              <p className="lede" style={{ marginTop: 20 }}>
+                Add books to any engagement so the message keeps going after the talk ends.
+              </p>
+              <ul>
+                {bundlePerks.map((perk, i) => (
+                  <li key={perk}>
+                    <span>{roman[i]}</span>
+                    {perk}
+                  </li>
+                ))}
+              </ul>
+              <a className="btn btn-gold" href="#inquire">
+                <span>Ask About the Bundle</span>
+                <span className="arr" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ EVENTS ============ */}
+        <section className="block dark" id="events">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">Upcoming</span>
+              <h2>
+                Where Odis is <em>speaking next.</em>
+              </h2>
+            </div>
+            {events.map((ev, i) => (
+              <div className="ev" key={`${ev.month}-${ev.day}-${i}`}>
+                <div className="ev-date">
+                  <span>{ev.month}</span>
+                  <b>{ev.day}</b>
+                </div>
+                <div>
+                  <h3>{ev.name}</h3>
+                  <p>{ev.place}</p>
+                </div>
+                <span className="ev-tag">{ev.tag}</span>
+              </div>
+            ))}
+            <div className="ev-foot">
+              <span>Want Odis at your event?</span>
+              <a className="btn btn-gold" href="#inquire">
+                <span>Request a Date</span>
+                <span className="arr" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ TESTIMONIALS ============ */}
+        <section className="block" aria-labelledby="testimonials-heading">
+          <div className="wrap">
+            <div className="head">
+              <span className="eyebrow">In Their Words</span>
+              <h2 id="testimonials-heading">
+                What hosts and <em>graduates</em> say.
+              </h2>
+            </div>
+            <div className="quotes">
+              {testimonials.map((t) => (
+                <figure className="qt" key={t.name}>
+                  <blockquote>
+                    <p>{t.quote}</p>
+                  </blockquote>
+                  <figcaption>
+                    <b>{t.name}</b>
+                    <span>{t.role}</span>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
         </section>
 
         {/* ============ AUDIENCES ============ */}
-        <section className="story audiences" id="audiences">
+        <section className="block" style={{ paddingTop: 0 }} id="audiences">
           <div className="wrap">
-            <div className="story-head">
+            <div className="head">
               <span className="eyebrow">Who Books Odis</span>
-              <span className="chapter">Chapter IV</span>
-              <h2>Audiences that have <em>already</em> been in the room.</h2>
+              <h2>
+                Audiences he&apos;s <em>already</em> spoken to.
+              </h2>
             </div>
-            <div className="aud-grid">
-              {audiences.map((aud, i) => (
-                <div className="aud" key={aud.title}>
-                  <span className="aud-num">{roman[i]}</span>
-                  <h3 className="h4">{aud.title}</h3>
+            <div className="aud">
+              {audiences.map((aud) => (
+                <div key={aud.title}>
+                  <h3>{aud.title}</h3>
                   <p>{aud.body}</p>
                 </div>
               ))}
@@ -216,26 +378,40 @@ export default function Home() {
         </section>
 
         {/* ============ BOOKING ============ */}
-        <section className="story booking" id="book">
-          <div className="wrap">
-            <div className="form-shell">
-              <div>
-                <span className="eyebrow">Booking Inquiries</span>
-                <h2>Tell us about your <em>stage.</em></h2>
-                <p className="lede">
-                  A staff member from the Male Responsibility Institute will respond within two business days with
-                  availability, scope, and fees. Honorariums are scaled to the host’s capacity — schools and community
-                  organizations are welcome to ask.
-                </p>
-                <div className="contact-meta">
-                  <b>Direct</b>
-                  <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a><br />
-                  {site.contact.phone}<br />
-                  {site.contact.location}
-                </div>
+        <section className="block booking" id="inquire">
+          <div className="wrap form-shell">
+            <div>
+              <span className="eyebrow">Booking Inquiries</span>
+              <h2>
+                Tell us about <em>your event.</em>
+              </h2>
+              <p className="lede" style={{ marginTop: 22 }}>
+                We&apos;ll reply within two business days with availability, scope, and fees. Fees are scaled to what
+                the host can pay, so schools and community organizations are welcome to ask.
+              </p>
+              <div className="contact">
+                <b>Direct</b>
+                <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+                <br />
+                {site.contact.phone}
+                <br />
+                {site.contact.location}
               </div>
-              <BookingForm />
             </div>
+            <BookingForm />
+          </div>
+        </section>
+
+        {/* ============ EMAIL SIGN-UP ============ */}
+        <section className="dark signup" aria-labelledby="signup-heading">
+          <div className="wrap signup-grid">
+            <div>
+              <h2 id="signup-heading">
+                Stay in the <em>loop.</em>
+              </h2>
+              <p>New events, book news, and occasional notes from Odis.</p>
+            </div>
+            <SignupForm />
           </div>
         </section>
       </main>
@@ -243,42 +419,25 @@ export default function Home() {
       {/* ============ FOOTER ============ */}
       <footer>
         <div className="wrap foot">
-          <div className="foot-brand">
-            <span
-              className="foot-meta"
-              style={{
-                fontStyle: "normal",
-                fontFamily: "var(--font-inter), sans-serif",
-                fontWeight: 600,
-                fontSize: 13,
-                letterSpacing: ".18em",
-                textTransform: "uppercase",
-                color: "var(--cream)",
-                lineHeight: 1.6,
-              }}
-            >
-              {site.name}
-              <br />
-              <span style={{ color: "var(--gold)", fontWeight: 500, letterSpacing: ".22em", fontSize: 11 }}>
-                Detroit · est. 1991
-              </span>
-            </span>
+          <div className="foot-name">
+            {site.name}
+            <span>Detroit · est. {site.founded}</span>
           </div>
-          <span className="foot-copy">© {new Date().getFullYear()} {site.name} · Odis Bellinger, MA, LLPC</span>
+          <span className="foot-copy">
+            © {new Date().getFullYear()} {site.name} · Odis Bellinger, MA, LLPC
+          </span>
           <nav className="foot-links" aria-label="Footer">
-            <a href="#mission">Mission</a>
-            <a href="#topics">Topics</a>
+            <a href="#speaking">Speaking</a>
             <a href="#book">Book</a>
-            {site.linkedin && <a href={site.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>}
+            <a href="#events">Events</a>
+            <a href="#inquire">Contact</a>
           </nav>
         </div>
-        {/* NEW: Roseway Studio credit */}
         <div className="wrap">
           <p className="foot-credit">
-            Website powered by <a href="https://rosewaystudio.com">Roseway Studio</a>
+            Website powered by <SmartLink href={site.credit.href}>{site.credit.label}</SmartLink>
           </p>
         </div>
-        {/* END NEW */}
       </footer>
     </>
   );

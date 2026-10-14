@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { submitInquiry, type FormState } from "@/app/actions";
-import { audienceOptions } from "@/lib/content";
+import { audienceOptions, book } from "@/lib/content";
 
 const initialState: FormState = { status: "idle" };
 
@@ -11,47 +11,47 @@ export default function BookingForm() {
   const errors = state.fieldErrors ?? {};
   const sent = state.status === "success";
 
+  const invalid = (key: keyof typeof errors) => ({
+    "aria-invalid": !!errors[key],
+    "aria-describedby": errors[key] ? `${key}-error` : undefined,
+  });
+  const error = (key: keyof typeof errors) =>
+    errors[key] ? <p id={`${key}-error`} className="field-error">{errors[key]}</p> : null;
+
   return (
-    <form className="inquiry" action={formAction} noValidate>
+    <form className="inq" action={formAction} noValidate>
       <div className="hp-field" aria-hidden="true">
-        <label htmlFor="website">Leave this field empty</label>
-        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="inq-website">Leave this field empty</label>
+        <input id="inq-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="field-row">
+      <div className="row2">
         <div className="field">
           <label htmlFor="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="First & last" autoComplete="name"
-            required aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-error" : undefined} />
-          {errors.name && <p id="name-error" className="field-error">{errors.name}</p>}
+          <input id="name" name="name" type="text" placeholder="First & last" autoComplete="name" required {...invalid("name")} />
+          {error("name")}
         </div>
         <div className="field">
           <label htmlFor="organization">Organization</label>
           <input id="organization" name="organization" type="text" placeholder="School, company, foundation…"
-            autoComplete="organization" required aria-invalid={!!errors.organization}
-            aria-describedby={errors.organization ? "organization-error" : undefined} />
-          {errors.organization && <p id="organization-error" className="field-error">{errors.organization}</p>}
+            autoComplete="organization" required {...invalid("organization")} />
+          {error("organization")}
         </div>
       </div>
 
-      <div className="field-row">
+      <div className="row2">
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@org.org" autoComplete="email"
-            required aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} />
-          {errors.email && <p id="email-error" className="field-error">{errors.email}</p>}
+          <input id="email" name="email" type="email" placeholder="you@org.org" autoComplete="email" required {...invalid("email")} />
+          {error("email")}
         </div>
         <div className="field">
-          <label htmlFor="phone">Phone (optional)</label>
-          <input id="phone" name="phone" type="tel" placeholder="(___) ___ · ____" autoComplete="tel" />
+          <label htmlFor="eventDetails">Event date &amp; city</label>
+          <input id="eventDetails" name="eventDetails" type="text" placeholder="e.g. Mar 12, 2027 · Chicago" />
         </div>
       </div>
 
-      <div className="field-row">
-        <div className="field">
-          <label htmlFor="eventDetails">Event date &amp; city</label>
-          <input id="eventDetails" name="eventDetails" type="text" placeholder="e.g. Oct 12, 2026 · Chicago" />
-        </div>
+      <div className="row2">
         <div className="field">
           <label htmlFor="audience">Audience type</label>
           <select id="audience" name="audience" defaultValue="">
@@ -61,20 +61,37 @@ export default function BookingForm() {
             ))}
           </select>
         </div>
+        <div className="field">
+          <label htmlFor="attendance">Expected attendance</label>
+          <input id="attendance" name="attendance" type="text" inputMode="numeric" placeholder="e.g. 250" />
+        </div>
+      </div>
+
+      {/* The number-of-books field appears when this is checked (CSS in globals.css). */}
+      <label className="check">
+        <input type="checkbox" name="bundle" />
+        <div>
+          <b>Add the Book + Talk bundle</b>
+          <span>A copy of <em>{book.title}</em> for every attendee.</span>
+        </div>
+      </label>
+      <div className="field qty">
+        <label htmlFor="bookCount">Number of books</label>
+        <input id="bookCount" name="bookCount" type="number" min={1} placeholder="e.g. 250" {...invalid("bookCount")} />
+        {error("bookCount")}
       </div>
 
       <div className="field">
         <label htmlFor="message">Tell us about the engagement</label>
-        <textarea id="message" name="message" rows={4}
-          placeholder="Audience size, format, topic of interest, budget range, anything else we should know…" />
+        <textarea id="message" name="message" rows={3} placeholder="Format, topic of interest, budget range…" />
       </div>
 
-      <button className={`submit${sent ? " is-sent" : ""}`} type="submit" disabled={pending || sent}>
+      <button className={`btn submit${sent ? " is-sent" : ""}`} type="submit" disabled={pending || sent}>
         <span>{sent ? "Inquiry Received" : pending ? "Sending…" : "Submit Inquiry"}</span>
-        <span className="serif" style={{ fontSize: 18, letterSpacing: 0 }}>→</span>
+        <span className="arr" aria-hidden="true">→</span>
       </button>
 
-      <p className={`form-status${state.status === "error" ? " is-error" : " is-success"}`} role="status" aria-live="polite">
+      <p className={`form-status${state.status === "error" ? " is-error" : ""}`} role="status" aria-live="polite">
         {state.message}
       </p>
     </form>
